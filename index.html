@@ -6,41 +6,43 @@
     <title>시간의 틈 - AI 학업 & 수행평가 매니저</title>
     <style>
         :root {
-            --primary-color: #4A90E2;
-            --secondary-color: #50E3C2;
-            --bg-color: #F8F9FA;
+            --primary-color: #3B82F6;
+            --secondary-color: #10B981;
+            --bg-color: #F3F4F6;
             --card-bg: #FFFFFF;
-            --text-color: #333333;
-            --accent-color: #FF6B6B;
-            --border-color: #E9ECEF;
+            --text-main: #1F2937;
+            --text-sub: #4B5563;
+            --accent-color: #EF4444;
+            --border-color: #E5E7EB;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
+        /* 헤더 디자인 */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #2563EB, #10B981);
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2.5rem 1rem 2rem 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         }
 
         header h1 {
             font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
         }
 
         header p {
@@ -48,13 +50,55 @@
             opacity: 0.95;
         }
 
+        /* STEP 플로우 바 */
+        .step-bar {
+            max-width: 1000px;
+            margin: -20px auto 25px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            overflow-x: auto;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .step-item span {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .step-arrow {
+            color: #9CA3AF;
+            font-size: 0.8rem;
+        }
+
+        /* Main 레이아웃 */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
         @media (min-width: 768px) {
@@ -68,27 +112,34 @@
 
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 24px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
         }
 
         .card h2 {
-            font-size: 1.25rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: var(--primary-color);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .step-tag {
+        .badge {
             background-color: var(--primary-color);
             color: white;
             font-size: 0.75rem;
             padding: 2px 8px;
-            border-radius: 12px;
+            border-radius: 6px;
             font-weight: bold;
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 14px;
         }
 
         /* STEP 1: 시간표 스타일 */
@@ -105,7 +156,7 @@
         }
 
         .timetable th {
-            background-color: #F1F3F5;
+            background-color: #F9FAFB;
             font-weight: 600;
         }
 
@@ -120,11 +171,11 @@
 
         .timetable input:focus {
             outline: 2px solid var(--primary-color);
-            background: #F0F7FF;
+            background: #EFF6FF;
             border-radius: 4px;
         }
 
-        /* 폼 & 공통 버튼 */
+        /* Form 및 버튼 스타일 */
         .form-group {
             margin-bottom: 12px;
         }
@@ -139,7 +190,7 @@
         input[type="text"], input[type="date"], input[type="time"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #CED4DA;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             font-size: 0.9rem;
         }
@@ -158,10 +209,10 @@
         }
 
         button:hover {
-            background-color: #357ABD;
+            background-color: #2563EB;
         }
 
-        /* STEP 2 & 3: 일정 및 알람 리스트 */
+        /* STEP 3: 알람 및 공지 리스트 */
         .todo-list {
             list-style: none;
             margin-top: 15px;
@@ -173,9 +224,9 @@
             align-items: center;
             padding: 10px 12px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 8px;
-            background-color: #FAFAFA;
+            background-color: #F9FAFB;
         }
 
         .todo-info .title {
@@ -185,28 +236,28 @@
 
         .todo-info .details {
             font-size: 0.8rem;
-            color: #6C757D;
+            color: var(--text-sub);
         }
 
         .delete-btn {
             background-color: var(--accent-color);
             width: auto;
-            padding: 5px 10px;
+            padding: 4px 10px;
             font-size: 0.8rem;
         }
 
         .delete-btn:hover {
-            background-color: #E05252;
+            background-color: #DC2626;
         }
 
-        /* STEP 4: AI 챗봇 */
+        /* STEP 4: AI 수행평가 챗봇 */
         .chat-box {
             height: 220px;
-            border: 1px solid #CED4DA;
-            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 12px;
             overflow-y: auto;
-            background-color: #F8F9FA;
+            background-color: #F9FAFB;
             margin-bottom: 10px;
             font-size: 0.9rem;
         }
@@ -224,8 +275,8 @@
 
         .chat-message.ai {
             text-align: left;
-            color: #333;
-            background-color: #E9ECEF;
+            color: var(--text-main);
+            background-color: #E5E7EB;
             padding: 8px 12px;
             border-radius: 8px;
             display: inline-block;
@@ -246,20 +297,66 @@
             white-space: nowrap;
             padding: 0 16px;
         }
+
+        /* STEP 5: 끝 (완료 요약) */
+        .summary-card {
+            background: linear-gradient(135deg, #ECFDF5, #EFF6FF);
+            border: 1px solid #A7F3D0;
+        }
+
+        .summary-status {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .status-box {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .status-box .number {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .status-box .label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>시간의 틈</h1>
-        <p>시간표 관리부터 수행평가 대비까지, 틈새 시간을 효율적으로 관리하세요</p>
+        <p>시간표 파악부터 수행평가 알림, AI 대비까지 — 시간 절약 스마트 매니저</p>
     </header>
+
+    <!-- STEP 플로우 바 -->
+    <div class="step-bar">
+        <div class="step-item"><span>1</span> 시간표 입력</div>
+        <div class="step-arrow">➔</div>
+        <div class="step-item"><span>2</span> 일정 기록</div>
+        <div class="step-arrow">➔</div>
+        <div class="step-item"><span>3</span> 알람/공지</div>
+        <div class="step-arrow">➔</div>
+        <div class="step-item"><span>4</span> AI 보조</div>
+        <div class="step-arrow">➔</div>
+        <div class="step-item"><span>5</span> 완벽 준비</div>
+    </div>
 
     <div class="container">
         
+        <!-- STEP 1. 시간표 입력 -->
         <div class="card full-width">
-            <h2><span class="step-tag">STEP 1</span> 학교 시간표 입력</h2>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">교시별 과목명을 입력 후 [시간표 저장] 버튼을 눌러주세요.</p>
+            <h2><span class="badge">STEP 1</span> 학교 시간표 입력</h2>
+            <p class="description">교시별 과목을 입력해 두면 다가오는 시간표를 확인하고 관리할 수 있습니다.</p>
             <div style="overflow-x: auto;">
                 <table class="timetable">
                     <thead>
@@ -268,56 +365,87 @@
                         </tr>
                     </thead>
                     <tbody id="timetable-body">
-                        </tbody>
+                        <!-- JS 생성 -->
+                    </tbody>
                 </table>
             </div>
             <button style="margin-top: 12px;" onclick="saveTimetable()">시간표 저장하기</button>
         </div>
 
+        <!-- STEP 2. 수행평가 등 중요한 일정이 있는 날 기록 -->
         <div class="card">
-            <h2><span class="step-tag">STEP 2 & 3</span> 수행평가 기록 및 알람 설정</h2>
+            <h2><span class="badge">STEP 2</span> 수행평가 일정 기록</h2>
+            <p class="description">수행평가 날짜와 과목명, 알람 시간을 등록하세요.</p>
             <form id="todo-form">
                 <div class="form-group">
-                    <label for="subject">과목 및 수행평가 내용</label>
-                    <input type="text" id="subject" placeholder="예: [국어] 독서 감상문 제출" required>
+                    <label for="subject">과목 및 수행평가명</label>
+                    <input type="text" id="subject" placeholder="예: [국어] 독서 감상문 발표" required>
                 </div>
                 <div class="form-group">
-                    <label for="due-date">날짜</label>
+                    <label for="due-date">수행평가 날짜</label>
                     <input type="date" id="due-date" required>
                 </div>
                 <div class="form-group">
-                    <label for="alarm-time">알람 시간</label>
+                    <label for="alarm-time">알람 설정 시간</label>
                     <input type="time" id="alarm-time" required>
                 </div>
-                <button type="submit">일정 추가하기</button>
+                <button type="submit">일정 기록하기</button>
             </form>
-
-            <ul class="todo-list" id="todo-list">
-                </ul>
         </div>
 
+        <!-- STEP 3. 알람 및 공지를 이용해 알려줌 -->
         <div class="card">
-            <h2><span class="step-tag">STEP 4</span> AI 수행평가 대비 보조 툴</h2>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">수행평가 주제나 상세 요구사항을 알려주시면 준비를 도와드립니다.</p>
+            <h2><span class="badge">STEP 3</span> 수행평가 알람 & 공지</h2>
+            <p class="description">기록된 일정과 설정한 알람 목록입니다. 시간에 맞춰 푸시/공지로 안내합니다.</p>
+            <button style="background-color: var(--secondary-color); margin-bottom: 10px;" onclick="requestNotificationPermission()">🔔 브라우저 알람 권한 허용하기</button>
+            <ul class="todo-list" id="todo-list">
+                <!-- 일정 등록 목록 -->
+            </ul>
+        </div>
+
+        <!-- STEP 4. AI 툴이 수행평가를 보조해줌 -->
+        <div class="card">
+            <h2><span class="badge">STEP 4</span> AI 수행평가 보조 튜터</h2>
+            <p class="description">수행평가 주제나 자세한 사항을 입력하면 AI가 개요 및 대비 전략을 도와줍니다.</p>
             <div class="chat-box" id="chat-box">
-                <div class="chat-message ai">AI: 안녕하세요! 어떤 수행평가를 준비 중이신가요? 과목이나 주제를 말씀해 주세요!</div>
+                <div class="chat-message ai">AI: 안녕하세요! 어떤 수행평가를 준비해야 하나요? 과목이나 세부 내용을 말씀해 주시면 대비법을 정리해 드릴게요!</div>
             </div>
             <div class="chat-input-group">
-                <input type="text" id="chat-input" placeholder="예: 과학 탐구 보고서 주제 추천해줘" onkeypress="handleKeyPress(event)">
+                <input type="text" id="chat-input" placeholder="예: [역사] 수행평가 주제 추천 및 개요 알려줘" onkeypress="handleKeyPress(event)">
                 <button onclick="sendChatMessage()">전송</button>
             </div>
+        </div>
+
+        <!-- STEP 5. 끝 (완료 및 현황 확인) -->
+        <div class="card summary-card">
+            <h2><span class="badge" style="background-color: var(--secondary-color);">STEP 5</span> 학습 현황 종합 (끝)</h2>
+            <p class="description">수행평가 일정과 시간표 준비가 끝났습니다. 남은 시간을 효율적으로 활용하세요!</p>
+            <div class="summary-status">
+                <div class="status-box">
+                    <div class="number" id="summary-todo-count">0</div>
+                    <div class="label">남은 수행평가</div>
+                </div>
+                <div class="status-box">
+                    <div class="number" id="summary-today-day">-</div>
+                    <div class="label">오늘의 요일</div>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-sub); text-align: center; margin-top: 15px;">
+                💡 <b>시간의 틈 팁:</b> 틈새 시간에 STEP 4의 AI 보조를 받아 수행평가를 사전에 준비해 두세요!
+            </p>
         </div>
 
     </div>
 
     <script>
         const days = ['mon', 'tue', 'wed', 'thu', 'fri'];
+        const dayNamesKo = ['일', '월', '화', '수', '목', '금', '토'];
         const periods = 7;
 
-        // --- STEP 1: 시간표 로직 ---
+        // --- STEP 1: 시간표 초기화 및 저장 ---
         function initTimetable() {
             const tbody = document.getElementById('timetable-body');
-            const savedData = JSON.parse(localStorage.getItem('timetable')) || {};
+            const savedData = JSON.parse(localStorage.getItem('gap_timetable')) || {};
 
             for (let i = 1; i <= periods; i++) {
                 const tr = document.createElement('tr');
@@ -342,14 +470,14 @@
                     timetableData[cellId] = document.getElementById(cellId).value;
                 });
             }
-            localStorage.setItem('timetable', JSON.stringify(timetableData));
-            alert('시간표가 저장되었습니다.');
+            localStorage.setItem('gap_timetable', JSON.stringify(timetableData));
+            alert('시간표가 성공적으로 저장되었습니다!');
         }
 
-        // --- STEP 2 & 3: 수행평가 일정 및 알람 로직 ---
+        // --- STEP 2 & 3: 일정 기록 및 알람 공지 ---
         const todoForm = document.getElementById('todo-form');
         const todoList = document.getElementById('todo-list');
-        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        let todos = JSON.parse(localStorage.getItem('gap_todos')) || [];
 
         function renderTodos() {
             todoList.innerHTML = '';
@@ -359,12 +487,13 @@
                 li.innerHTML = `
                     <div class="todo-info">
                         <div class="title">${todo.subject}</div>
-                        <div class="details">📅 ${todo.date} | ⏰ ${todo.time}</div>
+                        <div class="details">📅 ${todo.date} | ⏰ 알람: ${todo.time}</div>
                     </div>
                     <button class="delete-btn" onclick="deleteTodo(${index})">삭제</button>
                 `;
                 todoList.appendChild(li);
             });
+            updateSummary();
         }
 
         todoForm.addEventListener('submit', (e) => {
@@ -374,26 +503,34 @@
             const time = document.getElementById('alarm-time').value;
 
             todos.push({ subject, date, time, notified: false });
-            localStorage.setItem('todos', JSON.stringify(todos));
+            localStorage.setItem('gap_todos', JSON.stringify(todos));
             renderTodos();
 
             todoForm.reset();
-            requestNotificationPermission();
+            alert('수행평가 일정이 등록되었습니다!');
         });
 
         function deleteTodo(index) {
             todos.splice(index, 1);
-            localStorage.setItem('todos', JSON.stringify(todos));
+            localStorage.setItem('gap_todos', JSON.stringify(todos));
             renderTodos();
         }
 
         function requestNotificationPermission() {
-            if ("Notification" in window && Notification.permission !== "granted") {
-                Notification.requestPermission();
+            if ("Notification" in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        alert("브라우저 알람 권한이 허용되었습니다!");
+                    } else {
+                        alert("알람 권한이 거부되었습니다.");
+                    }
+                });
+            } else {
+                alert("이 브라우저는 알림 기능을 지원하지 않습니다.");
             }
         }
 
-        // 주기적으로 알람 시간 확인 (10초 마다)
+        // 실시간 알람 확인 기능 (10초마다 체크)
         function checkAlarms() {
             const now = new Date();
             const currentDate = now.toISOString().split('T')[0];
@@ -402,19 +539,19 @@
             todos.forEach((todo) => {
                 if (todo.date === currentDate && todo.time === currentTime && !todo.notified) {
                     if ("Notification" in window && Notification.permission === "granted") {
-                        new Notification("⏰ 시간의 틈 - 수행평가 알림", {
-                            body: `[${todo.subject}] 준비할 시간입니다!`,
+                        new Notification("⏰ [시간의 틈] 수행평가 알림", {
+                            body: `수행평가: ${todo.subject}\n지금 준비할 시간입니다!`,
                         });
                     } else {
-                        alert(`⏰ [수행평가 알림]\n${todo.subject} 준비할 시간입니다!`);
+                        alert(`⏰ [시간의 틈 공지/알람]\n수행평가: ${todo.subject}\n설정한 알람 시간입니다!`);
                     }
                     todo.notified = true;
-                    localStorage.setItem('todos', JSON.stringify(todos));
+                    localStorage.setItem('gap_todos', JSON.stringify(todos));
                 }
             });
         }
 
-        // --- STEP 4: AI 챗봇 로직 ---
+        // --- STEP 4: AI 툴 수행평가 보조 ---
         function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
@@ -425,21 +562,21 @@
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // AI 답변 응답 시뮬레이션
+            // AI 가상 대답 알고리즘
             setTimeout(() => {
-                let aiReply = "수행평가 완성을 위해 핵심 개요부터 작성해보는 것이 좋습니다.";
+                let aiReply = "수행평가 준비를 가이드해 드릴게요! 서론-본론-결론 구조로 개요부터 차근차근 작성해 보세요.";
                 
                 if (message.includes("주제") || message.includes("추천")) {
-                    aiReply = "최근 시사 이슈나 관심 있는 진로 분야와 연결 지어 주제를 선정하면 좋은 평가를 받을 수 있습니다.";
-                } else if (message.includes("역사") || message.includes("국어") || message.includes("과학") || message.includes("영어")) {
-                    aiReply = "해당 과목은 조건표(루브릭)의 출제 의도를 정확히 파악하고 필수 포함 단어를 확인하는 것이 핵심입니다.";
-                } else if (message.includes("보고서") || message.includes("글쓰기")) {
-                    aiReply = "서론(동기)-본론(탐구 내용)-결론(느낀 점 및 배운 점)의 3단 구조로 논리적으로 구성해 보세요.";
+                    aiReply = "최근 시사 이슈나 진로 관련 주제를 선택하고, 관련 통계나 학술 자료를 활용하면 좋은 점수를 받을 수 있습니다.";
+                } else if (message.includes("국어") || message.includes("역사") || message.includes("과학") || message.includes("영어")) {
+                    aiReply = "해당 과목 수행평가는 출제 조건(루브릭)을 반드시 확인하고, 필수 포함 키워드가 들어가도록 구성하는 것이 포인트입니다.";
+                } else if (message.includes("발표") || message.includes("PPT")) {
+                    aiReply = "발표 자료는 텍스트를 줄이고 핵심 키워드 중심의 시각 자료로 구성하세요. 1분당 슬라이드 1장이 적당합니다.";
                 }
 
                 chatBox.innerHTML += `<div class="chat-message ai">AI: ${aiReply}</div>`;
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }, 600);
+            }, 500);
         }
 
         function handleKeyPress(event) {
@@ -448,11 +585,18 @@
             }
         }
 
-        // 페이지 로드시 실행
+        // --- STEP 5: 현황 요약 업데이트 ---
+        function updateSummary() {
+            document.getElementById('summary-todo-count').innerText = todos.length;
+            const today = new Date();
+            document.getElementById('summary-today-day').innerText = dayNamesKo[today.getDay()] + '요일';
+        }
+
+        // 초기 실행
         window.onload = () => {
             initTimetable();
             renderTodos();
-            setInterval(checkAlarms, 10000); // 10초마다 알람 조건 체크
+            setInterval(checkAlarms, 10000); // 10초마다 알람 검사
         };
     </script>
 </body>
