@@ -1,412 +1,356 @@
 :root {
-    --primary-color: #2563EB;
-    --primary-hover: #1D4ED8;
-    --secondary-color: #10B981;
-    --bg-color: #F8FAFC;
-    --card-bg: #FFFFFF;
-    --text-main: #0F172A;
-    --text-sub: #475569;
-    --accent-color: #EF4444;
-    --border-color: #E2E8F0;
-    --input-bg: #FFFFFF;
-    --notice-bg: #FEF3C7;
-    --notice-text: #78350F;
-    --badge-bg: #E0E7FF;
-    --badge-text: #3730A3;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #059669;
+  --bg-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-sub: #475569;
+  --accent-color: #dc2626;
+  --border-color: #cbd5e1;
+  --input-bg: #ffffff;
+  --badge-bg: #e0e7ff;
+  --badge-text: #3730a3;
+  --tag-bg: #fee2e2;
+  --tag-border: #fca5a5;
 }
 
 body.dark-mode {
-    --primary-color: #3B82F6;
-    --primary-hover: #60A5FA;
-    --secondary-color: #34D399;
-    --bg-color: #0F172A;
-    --card-bg: #1E293B;
-    --text-main: #F8FAFC;
-    --text-sub: #94A3B8;
-    --accent-color: #F87171;
-    --border-color: #334155;
-    --input-bg: #0F172A;
-    --notice-bg: #451A03;
-    --notice-text: #FDE68A;
-    --badge-bg: #312E81;
-    --badge-text: #C7D2FE;
+  --primary-color: #3b82f6;
+  --primary-hover: #60a5fa;
+  --secondary-color: #10b981;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --accent-color: #ef4444;
+  --border-color: #334155;
+  --input-bg: #0f172a;
+  --badge-bg: #312e81;
+  --badge-text: #c7d2fe;
+  --tag-bg: #451a03;
+  --tag-border: #9a3412;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.6;
-    padding-bottom: 60px;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  padding-bottom: 50px;
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem 1.8rem 1rem;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .theme-toggle-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.82rem;
-    font-weight: 600;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.step-bar {
-    max-width: 1050px;
-    margin: -20px auto 25px auto;
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 12px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    overflow-x: auto;
-    border: 1px solid var(--border-color);
-}
-
-.step-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-sub);
-    white-space: nowrap;
-}
-
-.step-item span {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .container {
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-@media (min-width: 800px) {
-    .container {
-        grid-template-columns: 1fr 1fr;
-    }
-    .full-width {
-        grid-column: span 2;
-    }
+@media (min-width: 820px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .full-width {
+    grid-column: span 2;
+  }
 }
 
 .card {
-    background: var(--card-bg);
-    border-radius: 14px;
-    padding: 22px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .card h2 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .badge {
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-weight: bold;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 .description {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 14px;
 }
 
-/* Calendar & Timetable Controls */
-.calendar-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--bg-color);
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    border: 1px solid var(--border-color);
+/* Calendar & Timetable Hybrid Controls */
+.calendar-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-color);
+  gap: 10px;
 }
 
-.calendar-controls input[type="date"] {
-    width: auto;
-    padding: 4px 8px;
+.calendar-nav-btn {
+  width: auto;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.calendar-nav-btn:hover {
+  background: var(--border-color);
 }
 
 .timetable {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    font-size: 0.85rem;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 0.82rem;
 }
 
 .timetable th, .timetable td {
-    border: 1px solid var(--border-color);
-    padding: 6px 2px;
-    position: relative;
-    vertical-align: top;
-    height: 60px;
+  border: 1px solid var(--border-color);
+  padding: 6px 4px;
+  vertical-align: top;
+  height: 65px;
+  width: 18%;
+}
+
+.timetable th:first-child, .timetable td:first-child {
+  width: 10%;
 }
 
 .timetable th {
-    background-color: var(--bg-color);
-    font-weight: 600;
+  background-color: var(--bg-color);
+  font-weight: 600;
 }
 
-.timetable th.active-day {
-    background-color: var(--primary-color);
-    color: white;
+.timetable th.today-highlight {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .timetable select {
-    width: 100%;
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--text-main);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 4px 0;
-    text-align: center;
-    cursor: pointer;
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 2px 0;
+  text-align: center;
+  cursor: pointer;
 }
 
-.timetable select:hover, .timetable select:focus {
-    border-color: var(--primary-color);
-    background: var(--bg-color);
-    border-radius: 4px;
-    outline: none;
+.timetable select:focus, .timetable select:hover {
+  border-color: var(--primary-color);
+  background: var(--bg-color);
+  border-radius: 4px;
+  outline: none;
 }
 
-.timetable-assessment-tag {
-    display: block;
-    background-color: rgba(239, 68, 68, 0.15);
-    color: var(--accent-color);
-    font-size: 0.68rem;
-    font-weight: bold;
-    padding: 2px;
-    border-radius: 4px;
-    margin-top: 2px;
-    border: 1px solid var(--accent-color);
+.assessment-tag {
+  display: block;
+  background-color: var(--tag-bg);
+  color: var(--accent-color);
+  border: 1px solid var(--tag-border);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-top: 4px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.priority-high {
-    border-left: 4px solid var(--accent-color);
-}
-
-.priority-badge {
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    background: var(--badge-bg);
-    color: var(--badge-text);
-}
-
+/* Forms & Inputs */
 .form-group {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .form-group label {
-    display: block;
-    font-size: 0.83rem;
-    margin-bottom: 4px;
-    font-weight: 600;
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+  font-weight: 600;
 }
 
-input[type="text"], input[type="number"], input[type="date"], input[type="time"], input[type="password"], select, textarea {
-    width: 100%;
-    padding: 9px 11px;
-    border: 1px solid var(--border-color);
-    background-color: var(--input-bg);
-    color: var(--text-main);
-    border-radius: 6px;
-    font-size: 0.88rem;
+input[type="text"], input[type="number"], input[type="date"], input[type="time"], input[type="password"], select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border-radius: 6px;
+  font-size: 0.85rem;
 }
 
 button {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 button:hover {
-    background-color: var(--primary-hover);
+  background-color: var(--primary-hover);
 }
 
-.btn-secondary {
-    background-color: var(--secondary-color);
-}
-
-.btn-secondary:hover {
-    opacity: 0.9;
-}
-
-.notice-board {
-    background-color: var(--notice-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
-}
-
-.notice-item {
-    font-size: 0.82rem;
-    color: var(--notice-text);
-    margin-bottom: 4px;
-}
-
+/* Priority Items & Pomodoro Timer */
 .todo-list {
-    list-style: none;
+  list-style: none;
 }
 
 .todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background-color: var(--bg-color);
+}
+
+.todo-item.priority-high {
+  border-left: 4px solid var(--accent-color);
+}
+
+.score-badge {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  margin-right: 6px;
 }
 
 .delete-btn {
-    background-color: var(--accent-color);
-    width: auto;
-    padding: 4px 8px;
-    font-size: 0.75rem;
+  background-color: var(--accent-color);
+  width: auto;
+  padding: 4px 8px;
+  font-size: 0.75rem;
 }
 
-/* Pomodoro Timer Styling */
+.timer-box {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
 .timer-display {
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-align: center;
-    color: var(--primary-color);
-    margin: 10px 0;
-    letter-spacing: 2px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin: 8px 0;
+  letter-spacing: 2px;
 }
 
 .timer-controls {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
-.timer-controls button {
-    flex: 1;
-}
-
-/* Gemini Chat Box */
+/* Chat UI */
 .chat-box {
-    height: 220px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 12px;
-    overflow-y: auto;
-    background-color: var(--bg-color);
-    margin-bottom: 10px;
-    font-size: 0.85rem;
+  height: 180px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  margin-bottom: 10px;
+  font-size: 0.83rem;
 }
 
-.chat-message {
-    margin-bottom: 10px;
-    line-height: 1.4;
+.chat-msg {
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
-.chat-message.user {
-    text-align: right;
-    color: var(--primary-color);
-    font-weight: 600;
+.chat-msg.user {
+  text-align: right;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
-.chat-message.ai {
-    text-align: left;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 8px 12px;
-    border-radius: 8px;
-    display: inline-block;
-    max-width: 90%;
-    white-space: pre-wrap;
+.chat-msg.ai {
+  text-align: left;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  max-width: 90%;
+  white-space: pre-wrap;
 }
 
 .chat-input-group {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .chat-input-group button {
-    width: auto;
-    white-space: nowrap;
-}
-
-.summary-status {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-.status-box {
-    background: var(--bg-color);
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid var(--border-color);
-}
-
-.status-box .number {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--primary-color);
+  width: auto;
+  white-space: nowrap;
 }
